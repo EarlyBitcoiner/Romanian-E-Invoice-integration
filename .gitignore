@@ -1,3 +1,5 @@
-.idea
-src
-IlluminatedCloud
+# Ignore all files
+*
+
+# Except for CBC.cls
+!CBC.cls
