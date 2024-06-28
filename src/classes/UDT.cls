@@ -9,11 +9,11 @@ public class UDT {
 
 	public class AmountType {
 
-		public Decimal amount;
+		public Decimal value;
 		public String currencyID;
 
 		public AmountType(Decimal amount, String currencyID){
-			this.amount = amount;
+			this.value = amount;
 			this.currencyID = currencyID;
 		}
 	}
@@ -94,6 +94,12 @@ public class UDT {
 		public String schemeDataURI;
 		public String schemeURI;
 
+		public IdentifierType(){}
+
+		public IdentifierType(String value){
+			this.value = value;
+		}
+
 		public IdentifierType(String value, String schemeID){
 			this.value = value;
 			this.schemeID = schemeID;
@@ -172,6 +178,11 @@ public class UDT {
 
 		public QuantityType(Decimal value){
 			this.value = value;
+		}
+
+		public QuantityType( Decimal value, String unitCode ) {
+			this.value = value;
+			this.unitCode = unitCode;
 		}
 	}
 
