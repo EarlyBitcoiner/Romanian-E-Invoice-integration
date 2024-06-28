@@ -153,20 +153,25 @@ public class CBC {
 	}
 
 	public class ID implements XMLInvoiceNode {
-		public UDT.IdentifierType value;
+		public UDT.IdentifierType identifierType;
 
 		public ID(){
 		}
 
 		public ID(String documentId){
-			this.value = new UDT.IdentifierType(documentId);
+			this.identifierType = new UDT.IdentifierType(documentId);
 		}
 
 		public ID(String documentId, String schemaId){
-			this.value = new UDT.IdentifierType(documentId , schemaId);
+			this.identifierType = new UDT.IdentifierType(documentId , schemaId);
 		}
 
 		public void populateXmlNode(Dom.XmlNode outerNode){
+			Dom.XmlNode idNode = outerNode.addChildElement('cbc:ID',null,null);
+			idNode.addTextNode(this.identifierType.value);
+			if(identifierType.schemeID != null) {
+				idNode.setAttribute('schemeID', identifierType.schemeID);
+			}
 		}
 	}
 
