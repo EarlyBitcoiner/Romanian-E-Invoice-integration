@@ -1,0 +1,7 @@
+<!--
+ - Created By: petar.danadzhiev@next-consult.com - Junior Developer.
+ - Created Date: 4.7.2024 г.
+ -->
+<aura:component description="validateEInvoiceQuickActionWrapper" implements="force:lightningQuickActionWithoutHeader, force:hasRecordId">
+    <c:validateEInvoiceQuickAction recordId="{! v.recordId}" onclose="{! c.handleClose}" />
+</aura:component>
