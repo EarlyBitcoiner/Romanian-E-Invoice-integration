@@ -1,0 +1,45 @@
+<!--
+ - Created By: petar.danadzhiev@next-consult.com - Junior Developer.
+ - Created Date: 4.7.2024 г.
+ -->
+<!-- Validate E Invoice Quick Action -->
+<template>
+    <lightning-quick-action-panel header={header}>
+        <div class="quick-panel-height">
+
+            <!-- On Validation Check -->
+            <template if:true={loadingSpinner}>
+                <div class="slds-is-relative" style="min-height: 50vh">
+                    <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:false={loadingSpinner}>
+
+                <!-- ERROR template -->
+                <template if:false={success}>
+                    <div class="slds-p-top_small">
+                        <lightning-card variant="narrow" title={errorMessage} icon-name="utility:error">
+                            <span class="error-text-styling">{errorDescription}</span>
+                        </lightning-card>
+                    </div>
+                </template>
+
+                <!-- SUCCESS template -->
+                <template if:true={success}>
+                    <div class="slds-p-top_small">
+                        <lightning-card variant="narrow" title={successMessage} icon-name="utility:check">
+                        </lightning-card>
+                    </div>
+                </template>
+
+                <!-- Footer Close button -->
+                <div class="slds-modal__footer footer-spacing">
+                    <lightning-button variant="neutral" label="Отмени" onclick={closeQuickAction}></lightning-button>
+                </div>
+
+            </template>
+        </div>
+    </lightning-quick-action-panel>
+
+</template>

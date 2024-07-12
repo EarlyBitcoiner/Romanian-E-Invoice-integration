@@ -1,18 +1,18 @@
 /**
  * Created By: petar.danadzhiev@next-consult.com - Junior Developer.
- * Created Date: 25.6.2024 г..
+ * Created Date: 25.6.2024 г.
  *
  * @description Apex Class representing the elements in "UnqualifiedDataTypes" also known as U.D.T from "urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2"
  */
 public class UDT {
-	private static final String UDT_NAMESPACE = 'urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2';
+	private static final String DATE_FORMAT = 'YYYY-MM-DD';
 
 	public class AmountType {
 
 		public Decimal value;
 		public String currencyID;
 
-		public AmountType(Decimal amount, String currencyID){
+		public AmountType( Decimal amount, String currencyID ) {
 			this.value = amount;
 			this.currencyID = currencyID;
 		}
@@ -28,7 +28,7 @@ public class UDT {
 		public String uri;
 		public String filename;
 
-		public BinaryObjectType(String value){
+		public BinaryObjectType( String value ) {
 			this.value = value;
 		}
 	}
@@ -45,7 +45,7 @@ public class UDT {
 		public String listURI;
 		public String listSchemeURI;
 
-		public CodeType(String value){
+		public CodeType( String value ) {
 			this.value = value;
 		}
 	}
@@ -55,7 +55,7 @@ public class UDT {
 		public String value;
 		public String format;
 
-		public DateTimeType(String value, String format){
+		public DateTimeType( String value, String format ) {
 			this.value = value;
 			this.format = format;
 		}
@@ -64,8 +64,22 @@ public class UDT {
 	public class DateType {
 		public Date value;
 
-		public DateType(Date value){
+		public DateType( Date value ) {
 			this.value = value;
+		}
+
+		public override String toString() {
+			String result = DATE_FORMAT;
+
+			String year = '' + this.value.year();
+			String month = '' + this.value.month(); if( month.length() == 1 ) month = '0' + month;
+			String day = '' + this.value.day(); if( day.length() == 1 ) day = '0' + day;
+
+			result = result.replace('YYYY', year);
+			result = result.replace('MM', month);
+			result = result.replace('DD', day);
+
+			return result;
 		}
 	}
 
@@ -79,7 +93,7 @@ public class UDT {
 		public String uri;
 		public String filename;
 
-		public GraphicType(String value){
+		public GraphicType( String value ) {
 			this.value = value;
 		}
 	}
@@ -94,13 +108,14 @@ public class UDT {
 		public String schemeDataURI;
 		public String schemeURI;
 
-		public IdentifierType(){}
+		public IdentifierType() {
+		}
 
-		public IdentifierType(String value){
+		public IdentifierType( String value ) {
 			this.value = value;
 		}
 
-		public IdentifierType(String value, String schemeID){
+		public IdentifierType( String value, String schemeID ) {
 			this.value = value;
 			this.schemeID = schemeID;
 		}
@@ -109,7 +124,7 @@ public class UDT {
 	public class IndicatorType {
 		public Boolean value;
 
-		public IndicatorType(Boolean value){
+		public IndicatorType( Boolean value ) {
 			this.value = value;
 		}
 	}
@@ -120,7 +135,7 @@ public class UDT {
 		public String unitCode; // required
 		public String unitCodeListVersionID;
 
-		public MeasureType(Decimal value){
+		public MeasureType( Decimal value ) {
 			this.value = value;
 		}
 	}
@@ -130,7 +145,7 @@ public class UDT {
 		public String languageID;
 		public String languageLocaleID;
 
-		public NameType(String value){
+		public NameType( String value ) {
 			this.value = value;
 		}
 	}
@@ -139,7 +154,7 @@ public class UDT {
 		public Decimal value;
 		public String format;
 
-		public NumericType(Decimal value){
+		public NumericType( Decimal value ) {
 			this.value = value;
 		}
 	}
@@ -148,7 +163,7 @@ public class UDT {
 		public Decimal value;
 		public String format;
 
-		public PercentType(Decimal value){
+		public PercentType( Decimal value ) {
 			this.value = value;
 		}
 	}
@@ -163,7 +178,7 @@ public class UDT {
 		public String uri;
 		public String filename;
 
-		public PictureType(String value){
+		public PictureType( String value ) {
 			this.value = value;
 		}
 	}
@@ -176,7 +191,7 @@ public class UDT {
 		public String unitCodeListAgencyID;
 		public String unitCodeListAgencyName;
 
-		public QuantityType(Decimal value){
+		public QuantityType( Decimal value ) {
 			this.value = value;
 		}
 
@@ -190,7 +205,7 @@ public class UDT {
 		public Decimal value;
 		public String format;
 
-		public RateType(Decimal value){
+		public RateType( Decimal value ) {
 			this.value = value;
 		}
 	}
@@ -205,7 +220,7 @@ public class UDT {
 		public String uri;
 		public String filename;
 
-		public SoundType(String value){
+		public SoundType( String value ) {
 			this.value = value;
 		}
 	}
@@ -216,7 +231,7 @@ public class UDT {
 		public String languageID;
 		public String languageLocaleID;
 
-		public TextType(String value){
+		public TextType( String value ) {
 			this.value = value;
 		}
 	}
@@ -225,7 +240,7 @@ public class UDT {
 
 		public Time value;
 
-		public TimeType(Time value){
+		public TimeType( Time value ) {
 			this.value = value;
 		}
 	}
@@ -234,7 +249,7 @@ public class UDT {
 		public Decimal value;
 		public String format;
 
-		public ValueType(Decimal value){
+		public ValueType( Decimal value ) {
 			this.value = value;
 		}
 	}
@@ -249,7 +264,7 @@ public class UDT {
 		public String uri;
 		public String filename;
 
-		public VideoType(String value){
+		public VideoType( String value ) {
 			this.value = value;
 		}
 	}

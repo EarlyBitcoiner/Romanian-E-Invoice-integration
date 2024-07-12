@@ -1,2 +1,11 @@
 # Ignore all files
-*
+src/aura
+src/components
+src/lwc
+src/pages
+src/triggers
+src/classes/*
+src/staticresources
+IlluminatedCloud
+.idea
+package.xml
