@@ -1,6 +1,10 @@
+/**
+ * Created By: Ilin Argirov on 22.3.2022 г.
+ * Refactored By: petar.danadzhiev@next-consult.com - Junior Developer on 12.7.2024 г.
+ */
 public with sharing class ExchangeRateSelector {
 
-    public fferpcore__ExchangeRateGroup__c[] getExchangeRateGroups(String defaultCurrencyIsoCode) {
+    public fferpcore__ExchangeRateGroup__c[] getExchangeRateGroupsByDefaultCurrency(String defaultCurrencyIsoCode) {
         String isoCodeFilter = defaultCurrencyIsoCode + '%';
         return [
                 SELECT
